@@ -1,0 +1,150 @@
+#include<Servo.h>
+
+Servo myservo1;
+Servo myservo2;
+Servo myservo3;
+Servo myservo4;
+
+int FR_SERVO = 11;
+int FL_SERVO = 10;
+int BR_SERVO = 6;
+int BL_SERVO = 5;
+int throttle = 0;
+void setup() 
+{
+  myservo1.attach(FR_SERVO);
+  myservo1.write(10);
+  delay(3000);  
+  myservo2.attach(FL_SERVO);
+  myservo1.write(10);
+  delay(3000);  
+  myservo3.attach(BR_SERVO);
+  myservo1.write(10);
+  delay(3000);  
+  myservo4.attach(BL_SERVO);
+  myservo1.write(10);
+  delay(3000);  
+  Serial.begin(9600);
+  Serial.println("Setup Initializing...");
+/*  if ((myservo.attached(FR_SERVO)== HIGH)&&(myservo.attached(FL_SERVO)== HIGH)&&(myservo.attached(BR_SERVO)== HIGH)&&(myservo.attached(BL_SERVO)== HIGH))
+    {
+      Serial.println("All Servos are connected, READY TO GO...");
+    }
+   else
+   {
+    Serial.println("Servos are not connected");
+   }
+*/
+}
+
+void loop() 
+{
+  if (Serial.available())
+  {
+    char c =Serial.read();
+    Serial.println(c);
+    if(c=='1')
+    {
+      myservo1.write(40);
+      myservo2.write(40);
+      myservo3.write(40);
+      myservo4.write(40);
+      delay(15); 
+      Serial.println("Servo angle = 40 degrees");
+    }
+    else if(c=='2')
+    {
+      myservo1.write(45);
+      myservo2.write(45);
+      myservo3.write(45);
+      myservo4.write(45);
+      delay(15);
+      Serial.println("Servo angle = 45 degrees");
+    }
+    else if(c=='3')
+    {
+      myservo1.write(50);
+      myservo2.write(50);
+      myservo3.write(50);
+      myservo4.write(50);
+      delay(15);
+      Serial.println("Servo angle = 50 degrees");
+    }
+    else if(c=='4')
+    {
+      myservo1.write(55);
+      myservo2.write(55);
+      myservo3.write(55);
+      myservo4.write(55);
+      delay(15);
+      Serial.println("Servo angle = 55 degrees");
+    }
+    else if(c=='5')
+    {
+      myservo1.write(60);
+      myservo2.write(60);
+      myservo3.write(60);
+      myservo4.write(60);
+      delay(15);
+      Serial.println("Servo angle = 60 degrees");
+    }
+    else if(c=='6')
+    {
+      myservo1.write(65);
+      myservo2.write(65);
+      myservo3.write(65);
+      myservo4.write(65);
+      delay(15);
+      Serial.println("Servo angle = 65 degrees");
+    }
+    else if(c=='7')
+    {
+      myservo1.write(85);
+      myservo2.write(85);
+      myservo3.write(85);
+      myservo4.write(85);
+      delay(15);
+      Serial.println("Servo angle = 85 degrees");
+    }
+    else if(c=='8')
+    {
+      myservo1.write(100);
+      myservo2.write(100);
+      myservo3.write(100);
+      myservo4.write(100);
+      delay(15);
+      Serial.println("Servo angle = 100 degrees");
+    }
+    else if(c=='9')
+    {
+      myservo1.write(115);
+      myservo2.write(115);
+      myservo3.write(115);
+      myservo4.write(115);
+      delay(15);
+      Serial.println("Servo angle = 115 degrees");
+    }
+    else if(c=='q')
+    {
+      myservo1.write(130);
+      myservo2.write(130);
+      myservo3.write(130);
+      myservo4.write(130);
+      delay(15);
+      Serial.println("Servo angle = 130 degrees");
+    }
+    else if(c=='0')
+    {
+      myservo1.write(0);
+      myservo2.write(0);
+      myservo3.write(0);
+      myservo4.write(0);
+      delay(15);
+      Serial.println("Servo angle = 0 degrees");
+    }
+    else
+    {
+      Serial.println("Nothing");
+    }
+    }
+  }
